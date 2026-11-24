@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Think&Win Academy – MPPSC & PEB PDF Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff8f0;--surf:#fff;--text:#1f2430;--mute:#5d6577;--brand:#e8590c;--brand2:#c2410c;--ok:#15803d;--danger:#dc2626;--line:#f0dfcf;--chip:#ffe8d6;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14161c;--surf:#1d2029;--text:#eceef4;--mute:#a1a8ba;--brand:#ff8a4c;--brand2:#ff7a33;--ok:#4ade80;--danger:#f87171;--line:#2e3340;--chip:#2b2320}}
+:root[data-theme="dark"]{--bg:#14161c;--surf:#1d2029;--text:#eceef4;--mute:#a1a8ba;--brand:#ff8a4c;--brand2:#ff7a33;--ok:#4ade80;--danger:#f87171;--line:#2e3340;--chip:#2b2320}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Noto Sans Devanagari",Poppins,system-ui,sans-serif;line-height:1.55}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+header{display:flex;justify-content:space-between;align-items:center;padding:16px 0;gap:10px}
+.logo{font-family:Poppins,sans-serif;font-weight:700;font-size:20px;color:var(--brand);display:flex;align-items:center;gap:8px}.logo svg{flex:none}
+.logo span{color:var(--text)}
+nav{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+nav a{color:var(--mute);text-decoration:none;margin-left:12px;font-size:14px}
+.hero{padding:34px 0 26px;text-align:center}
+.hero h1{font-size:clamp(26px,5vw,42px);line-height:1.25;margin:0 0 12px}
+.hero h1 em{font-style:normal;color:var(--brand)}
+.hero p{color:var(--mute);max-width:620px;margin:0 auto 20px}
+.btn{display:inline-block;background:var(--brand);color:#fff;border:0;border-radius:12px;padding:12px 22px;font:600 15px "Noto Sans Devanagari",sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{background:var(--brand2)}
+.btn.ghost{background:transparent;color:var(--brand);border:1.5px solid var(--brand)}
+.btn.sm{padding:6px 12px;font-size:13px;border-radius:8px}
+.btn.danger{background:var(--danger);color:#fff}
+.trust{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px}
+.trust span{background:var(--chip);border-radius:99px;padding:6px 14px;font-size:13px}
+h2{font-size:24px;margin:34px 0 14px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:16px}
+.chip{flex:none;border:1px solid var(--line);background:var(--surf);color:var(--text);border-radius:99px;padding:8px 16px;cursor:pointer;font:500 14px "Noto Sans Devanagari",sans-serif}
+.chip.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.tag{align-self:flex-start;background:var(--chip);color:var(--brand);font-size:12px;font-weight:600;border-radius:6px;padding:2px 9px}
+.card h3{margin:0;font-size:17px;line-height:1.35}
+.card p{margin:0;color:var(--mute);font-size:14px;flex:1}
+.meta{font-size:12px;color:var(--mute)}
+.price{display:flex;align-items:baseline;gap:8px}
+.price b{font:700 24px Poppins,sans-serif}
+.price s{color:var(--mute);font-size:14px}.price i{color:var(--ok);font-style:normal;font-size:13px;font-weight:600}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.step{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:16px}
+.step b{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;margin-bottom:6px}
+details{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600}
+footer{margin:40px 0 20px;padding-top:18px;border-top:1px solid var(--line);color:var(--mute);font-size:13px;text-align:center}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:16px;z-index:30;overflow-y:auto}
+.modal.show{display:flex}
+.box{background:var(--surf);border-radius:18px;padding:22px;max-width:420px;width:100%;max-height:90vh;overflow-y:auto}
+.box.wide{max-width:680px}
+.box h3{margin:0 0 8px}.box .btn{width:100%;margin-top:10px;text-align:center}
+.box small{color:var(--mute);display:block;margin-top:10px}
+.row{display:flex;gap:8px}.row .btn{flex:1;padding:10px 6px;font-size:14px;text-align:center}
+.page{border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:14px 16px;margin:10px 0}.page h4{margin:0 0 8px;font-size:15px}.page ul{margin:0;padding-left:18px}.page li{font-size:14px;margin-bottom:4px}
+.rev p{margin:0;font-size:14px;color:var(--mute)}.stars{color:#f59e0b;letter-spacing:2px}.note{font-size:12px;color:var(--mute);text-align:center;margin-top:10px}
+nav .chip{padding:5px 12px;font-size:13px}
+
+/* Admin Panel Styles */
+.adm-sec{border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:14px;background:var(--bg)}
+.adm-sec h4{margin:0 0 10px;font-size:16px;color:var(--brand)}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.fg.full{grid-template-columns:1fr}
+.inp{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surf);color:var(--text);font:inherit;font-size:14px}
+.lbl{font-size:12px;color:var(--mute);display:block;margin-bottom:3px}
+.adm-item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px;border-bottom:1px solid var(--line);font-size:14px}
+.adm-item:last-child{border-bottom:none}
+.chk{display:flex;align-items:center;gap:8px;font-size:14px;margin:8px 0;cursor:pointer}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1f2430;color:#fff;padding:10px 20px;border-radius:99px;font-size:14px;z-index:50;display:none}
+@media(max-width:640px){nav a{display:none}.fg{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="logo">
+    <svg width="42" height="42" viewBox="0 0 48 48" aria-label="Saraswati"><circle cx="24" cy="24" r="23" fill="#fff" stroke="#e8590c" stroke-width="2"/><g fill="#ffd8b5" stroke="#e8590c" stroke-width="1"><ellipse cx="24" cy="32" rx="4" ry="8" transform="rotate(-55 24 40)"/><ellipse cx="24" cy="32" rx="4" ry="8" transform="rotate(55 24 40)"/><ellipse cx="24" cy="32" rx="4" ry="8" transform="rotate(-28 24 40)"/><ellipse cx="24" cy="32" rx="4" ry="8" transform="rotate(28 24 40)"/><ellipse cx="24" cy="32" rx="4" ry="8"/></g><path d="M13 11 L33 29" stroke="#c2410c" stroke-width="2.5" stroke-linecap="round"/><circle cx="33" cy="29" r="4.5" fill="#e8590c"/><circle cx="14" cy="12" r="2.5" fill="#e8590c"/></svg>
+    <span>Think&Win <span>Academy</span></span>
+  </div>
+  <nav>
+    <a href="#pdfs">PDFs</a>
+    <a href="#tests">टेस्ट सीरीज</a>
+    <a href="#reviews">समीक्षाएं</a>
+    <a href="#how">कैसे खरीदें</a>
+    <a href="#faq">सवाल</a>
+    <button class="chip" id="lang">English</button>
+    <button class="chip" id="openAdmin" title="Admin Panel">⚙️ Admin</button>
+  </nav>
+</header>
+
+<section class="hero">
+<h1>MPPSC & PEB परीक्षा की तैयारी,<br><em>सही नोट्स के साथ</em></h1>
+<p>MP GK, प्रारंभिक, मुख्य परीक्षा और PEB भर्तियों के लिए तैयार PDF नोट्स। UPI से पेमेंट करें और तुरंत डाउनलोड पाएं।</p>
+<a class="btn" href="#pdfs">PDF देखें</a>
+<div class="trust"><span>⚡ तुरंत डाउनलोड</span><span>📱 UPI / GPay / PhonePe / Paytm</span><span>🔒 सुरक्षित पेमेंट</span></div>
+</section>
+
+<section id="pdfs">
+<h2>हमारे PDF कोर्स</h2>
+<div class="chips" id="chips"></div>
+<div class="grid" id="grid"></div>
+</section>
+
+<section id="tests">
+<h2>टेस्ट सीरीज (PDF मॉक टेस्ट)</h2>
+<div class="grid" id="tgrid"></div>
+</section>
+
+<section id="reviews">
+<h2>विद्यार्थियों की राय</h2>
+<div class="grid" id="rgrid"></div>
+<p class="note" id="revnote">नमूना समीक्षाएं – इन्हें अपनी असली समीक्षाओं से बदलें।</p>
+</section>
+
+<section id="how">
+<h2>कैसे खरीदें?</h2>
+<div class="steps">
+<div class="step"><b>1</b><br><strong>PDF चुनें</strong><br><span class="meta">अपनी परीक्षा का नोट्स चुनें</span></div>
+<div class="step"><b>2</b><br><strong>UPI से पेमेंट</strong><br><span class="meta">किसी भी UPI ऐप से भुगतान करें</span></div>
+<div class="step"><b>3</b><br><strong>तुरंत PDF पाएं</strong><br><span class="meta">पेमेंट के बाद डाउनलोड लिंक मिलेगा</span></div>
+</div>
+</section>
+
+<section id="faq">
+<h2>अक्सर पूछे जाने वाले सवाल</h2>
+<details><summary>PDF कब मिलेगा?</summary><p>पेमेंट सफल होते ही डाउनलोड लिंक आपके ईमेल / स्क्रीन पर आ जाता है।</p></details>
+<details><summary>पेमेंट फेल हो जाए तो?</summary><p>पैसे कटने पर भी PDF न मिले तो WhatsApp पर पेमेंट का स्क्रीनशॉट भेजें, हम जल्दी मदद करेंगे।</p></details>
+<details><summary>क्या PDF अपडेट होते हैं?</summary><p>हां, नया पाठ्यक्रम आने पर नोट्स अपडेट किए जाते हैं।</p></details>
+</section>
+
+<footer>© 2026 Think&Win Academy · डिजिटल उत्पाद होने के कारण खरीद के बाद रिफंड उपलब्ध नहीं है ·
+<a href="#" id="wa" style="color:var(--brand)">WhatsApp सहायता</a></footer>
+</div>
+
+<!-- Buy Modal -->
+<div class="modal" id="modal"><div class="box">
+<h3 id="mTitle"></h3><div class="price"><b id="mPrice"></b></div>
+<a class="btn" id="upiBtn" href="#">UPI ऐप से भुगतान करें</a>
+<a class="btn ghost" id="waBtn" href="#" target="_blank" rel="noopener">पेमेंट के बाद WhatsApp करें</a>
+<button class="btn ghost" id="close" style="width:100%;margin-top:10px">बंद करें</button>
+<small>भुगतान के बाद स्क्रीनशॉट भेजें, PDF आपको भेज दिया जाएगा।</small>
+</div></div>
+
+<!-- Sample Modal -->
+<div class="modal" id="pmodal"><div class="box">
+<h3 id="pTitle"></h3>
+<div class="page"><h4>अध्याय 1: मध्य प्रदेश – एक परिचय</h4><ul><li>राजधानी: भोपाल</li><li>राज्य का गठन: 1 नवंबर 1956</li><li>उपनाम: भारत का हृदय प्रदेश</li></ul></div>
+<small>नमूना पेज – असली PDF का स्वरूप थोड़ा अलग हो सकता है।</small>
+<button class="btn ghost" id="pclose">बंद करें</button>
+</div></div>
+
+<!-- ADMIN PANEL MODAL -->
+<div class="modal" id="adminModal">
+  <div class="box wide">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h3>⚙️ Think&Win Admin Panel</h3>
+      <button class="btn sm ghost" id="closeAdmin" style="width:auto;margin:0">✕ बंद करें</button>
+    </div>
+
+    <!-- Login View -->
+    <div id="admLoginView" class="adm-sec">
+      <label class="lbl">Admin PIN डालें (डिफ़ॉल्ट: 1234)</label>
+      <input type="password" id="admPinInput" class="inp" placeholder="PIN डालें...">
+      <button class="btn" id="admLoginBtn">लॉगिन करें</button>
+    </div>
+
+    <!-- Dashboard View -->
+    <div id="admDashView" style="display:none">
+      
+      <!-- 1. Store Settings -->
+      <div class="adm-sec">
+        <h4>1. पेमेंट और संपर्क सेटिंग्स</h4>
+        <div class="fg">
+          <div><label class="lbl">आपकी UPI ID</label><input id="setUpi" class="inp" placeholder="name@upi"></div>
+          <div><label class="lbl">WhatsApp नंबर (91 के साथ)</label><input id="setWa" class="inp" placeholder="919999999999"></div>
+        </div>
+        <div class="fg">
+          <div><label class="lbl">अकादमी का नाम</label><input id="setName" class="inp"></div>
+          <div><label class="lbl">नया Admin PIN</label><input id="setPin" class="inp" placeholder="1234"></div>
+        </div>
+        <button class="btn sm" id="saveSettingsBtn" style="width:100%;margin-top:4px">सेटिंग्स सेव करें</button>
+      </div>
+
+      <!-- 2. Add New Product -->
+      <div class="adm-sec">
+        <h4>2. नया PDF कोर्स / टेस्ट सीरीज जोड़ें</h4>
+        <div class="fg">
+          <div><label class="lbl">कोर्स का नाम (Title)*</label><input id="newTitle" class="inp" placeholder="जैसे: MPPSC Unit 10 नोट्स"></div>
+          <div><label class="lbl">कैटेगरी (Category)*</label><input id="newCat" class="inp" placeholder="MPPSC / MP GK / PEB / टेस्ट सीरीज"></div>
+        </div>
+        <div class="fg full">
+          <div><label class="lbl">विवरण (Description)</label><input id="newDesc" class="inp" placeholder="कोर्स की खास बातें लिखें..."></div>
+        </div>
+        <div class="fg">
+          <div><label class="lbl">बिक्री कीमत ₹ (Price)*</label><input type="number" id="newPrice" class="inp" placeholder="199"></div>
+          <div><label class="lbl">असली कीमत ₹ (MRP)*</label><input type="number" id="newMrp" class="inp" placeholder="399"></div>
+        </div>
+        <div class="fg">
+          <div><label class="lbl">पेज संख्या (Pages)</label><input type="number" id="newPages" class="inp" placeholder="150"></div>
+          <div><label class="lbl">Payment Link (वैकल्पिक)</label><input id="newLink" class="inp" placeholder="Razorpay/Instamojo लिंक (खाली छोड़ें तो UPI चलेगा)"></div>
+        </div>
+        <label class="chk"><input type="checkbox" id="newIsTest"> इसे "टेस्ट सीरीज" सेक्शन में दिखाएं</label>
+        <button class="btn sm" id="addProdBtn" style="width:100%">+ नया कोर्स जोड़ें</button>
+      </div>
+
+      <!-- 3. Manage Existing Products -->
+      <div class="adm-sec">
+        <h4>3. मौजूदा कोर्स मैनेज करें (<span id="prodCount">0</span>)</h4>
+        <div id="admProdList" style="max-height:220px;overflow-y:auto"></div>
+      </div>
+
+      <!-- 4. Export / Sync -->
+      <div class="adm-sec">
+        <h4>4. सभी छात्रों के लिए लाइव करें (Export)</h4>
+        <p style="font-size:13px;color:var(--mute);margin:0 0 8px">आपके बदलाव अभी इस ब्राउज़र में सेव हैं। सभी यूज़र्स को दिखाने के लिए नीचे से कोड कॉपी करें और अपनी HTML फाइल के <code>/* START DATA */</code> से <code>/* END DATA */</code> के बीच पेस्ट करें।</p>
+        <div class="row">
+          <button class="btn sm" id="copyDataBtn">📋 अपडेटेड कोड कॉपी करें</button>
+          <button class="btn sm ghost" id="resetDataBtn">↺ डिफ़ॉल्ट रीसेट करें</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* START DATA */
+var DEFAULT_CONFIG = {
+  upiId: "yourname@upi",
+  payeeName: "Think&Win Academy",
+  whatsapp: "919999999999",
+  adminPin: "1234"
+};
+
+var DEFAULT_PRODUCTS = [
+ {t:"MPPSC प्रारंभिक – संपूर्ण नोट्स",c:"MPPSC",d:"पूरा प्रीलिम्स सिलेबस, टॉपिक-वाइज नोट्स और रिवीजन पॉइंट्स।",p:299,m:599,pg:320,link:""},
+ {t:"MPPSC मुख्य परीक्षा – उत्तर लेखन",c:"MPPSC",d:"GS पेपर 1-4 के लिए उत्तर लेखन शैली और मॉडल उत्तर।",p:349,m:699,pg:260,link:""},
+ {t:"MP GK – मध्य प्रदेश सामान्य ज्ञान",c:"MP GK",d:"इतिहास, भूगोल, कला-संस्कृति, अर्थव्यवस्था एक ही जगह।",p:199,m:399,pg:210,link:""},
+ {t:"MP करंट अफेयर्स (मासिक)",c:"करंट अफेयर्स",d:"हर महीने अपडेट होने वाला MP और राष्ट्रीय करंट अफेयर्स।",p:99,m:199,pg:60,link:""},
+ {t:"PEB पटवारी – कम्पलीट गाइड",c:"PEB",d:"पटवारी भर्ती के लिए सिलेबस आधारित नोट्स और अभ्यास प्रश्न।",p:249,m:499,pg:240,link:""},
+ {t:"PEB पुलिस आरक्षक – अभ्यास सेट",c:"PEB",d:"पिछले वर्षों के प्रश्न और 20 मॉक टेस्ट सेट।",p:149,m:299,pg:150,link:""},
+ {t:"MPPSC प्रारंभिक – 20 मॉक टेस्ट",c:"टेस्ट सीरीज",k:1,d:"परीक्षा पैटर्न पर आधारित पूरे प्रश्नपत्र, उत्तर कुंजी और व्याख्या के साथ।",p:199,m:399,pg:200,link:""},
+ {t:"PEB पटवारी – 15 फुल मॉक टेस्ट",c:"टेस्ट सीरीज",k:1,d:"समय-सीमा के साथ अभ्यास के लिए पूरे सेट और उत्तर कुंजी।",p:149,m:299,pg:150,link:""},
+ {t:"MP GK – 30 टॉपिक टेस्ट",c:"टेस्ट सीरीज",k:1,d:"टॉपिक के अनुसार छोटे टेस्ट, कमजोर विषय पहचानने के लिए।",p:99,m:199,pg:90,link:""}
+];
+/* END DATA */
+
+var CONFIG = JSON.parse(localStorage.getItem("twa_config")) || JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+var PRODUCTS = JSON.parse(localStorage.getItem("twa_products")) || JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+
+function saveLocal(){
+  localStorage.setItem("twa_config", JSON.stringify(CONFIG));
+  localStorage.setItem("twa_products", JSON.stringify(PRODUCTS));
+  document.getElementById("wa").href = "https://wa.me/" + CONFIG.whatsapp;
+}
+
+function showToast(msg){
+  var t = document.getElementById("toast");
+  t.textContent = msg;
+  t.style.display = "block";
+  setTimeout(function(){ t.style.display = "none"; }, 2800);
+}
+
+var cur="सभी",chips=document.getElementById("chips"),grid=document.getElementById("grid"),tgrid=document.getElementById("tgrid");
+
+function render(){
+  var cats=["सभी"].concat(PRODUCTS.filter(function(x){return !x.k}).map(function(x){return x.c}).filter(function(v,i,a){return a.indexOf(v)===i}));
+  if(cats.indexOf(cur)===-1) cur="सभी";
+  chips.innerHTML="";
+  cats.forEach(function(c){
+    var b=document.createElement("button");
+    b.className="chip"+(c===cur?" on":"");
+    b.textContent=c;
+    b.onclick=function(){cur=c;render()};
+    chips.appendChild(b);
+  });
+  grid.innerHTML="";tgrid.innerHTML="";
+  PRODUCTS.forEach(function(x,i){
+    if(!x.k&&cur!=="सभी"&&x.c!==cur)return;
+    var off=Math.max(0, Math.round((1-x.p/x.m)*100)),d=document.createElement("div");d.className="card";
+    d.innerHTML='<span class="tag"></span><h3></h3><p></p><div class="meta"></div><div class="price"><b></b><s></s><i></i></div><div class="row"><button class="btn buy">अभी खरीदें</button><button class="btn ghost smp">नमूना देखें</button></div>';
+    d.querySelector(".tag").textContent=x.c;
+    d.querySelector("h3").textContent=x.t;
+    d.querySelector("p").textContent=x.d;
+    d.querySelector(".meta").textContent=lang==="en"?"📄 "+x.pg+" pages · PDF":"📄 "+x.pg+" पेज · PDF";
+    d.querySelector("b").textContent="₹"+x.p;
+    d.querySelector("s").textContent="₹"+x.m;
+    d.querySelector("i").textContent=lang==="en"?off+"% off":off+"% छूट";
+    d.querySelector(".buy").onclick=function(){buy(i)};
+    d.querySelector(".smp").onclick=function(){sample(x)};
+    (x.k?tgrid:grid).appendChild(d);
+  });
+  reviews();
+  walk();
+}
+
+function buy(i){
+  var x=PRODUCTS[i];
+  if(x.link){window.open(x.link,"_blank");return}
+  document.getElementById("mTitle").textContent=x.t;
+  document.getElementById("mPrice").textContent="₹"+x.p;
+  document.getElementById("upiBtn").href="upi://pay?pa="+encodeURIComponent(CONFIG.upiId)+"&pn="+encodeURIComponent(CONFIG.payeeName)+"&am="+x.p+"&cu=INR&tn="+encodeURIComponent(x.t);
+  document.getElementById("waBtn").href="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent("नमस्ते, मैंने "+x.t+" (₹"+x.p+") का पेमेंट कर दिया है।");
+  document.getElementById("modal").classList.add("show");
+  walk();
+}
+
+document.getElementById("close").onclick=function(){document.getElementById("modal").classList.remove("show")};
+document.getElementById("wa").href="https://wa.me/"+CONFIG.whatsapp;
+
+/* ---- भाषा (Hindi/English) ---- */
+var lang='hi',EN={
+'कैसे खरीदें':'How to buy','सवाल':'FAQ','टेस्ट सीरीज':'Test Series','समीक्षाएं':'Reviews','English':'हिंदी',
+'MPPSC & PEB परीक्षा की तैयारी,':'MPPSC & PEB exam preparation,','सही नोट्स के साथ':'with the right notes',
+'MP GK, प्रारंभिक, मुख्य परीक्षा और PEB भर्तियों के लिए तैयार PDF नोट्स। UPI से पेमेंट करें और तुरंत डाउनलोड पाएं।':'Ready-made PDF notes for MP GK, Prelims, Mains and PEB exams. Pay by UPI and download instantly.',
+'PDF देखें':'View PDFs','⚡ तुरंत डाउनलोड':'⚡ Instant download','🔒 सुरक्षित पेमेंट':'🔒 Secure payment',
+'हमारे PDF कोर्स':'Our PDF courses','टेस्ट सीरीज (PDF मॉक टेस्ट)':'Test series (PDF mock tests)','विद्यार्थियों की राय':'What students say',
+'नमूना समीक्षाएं – इन्हें अपनी असली समीक्षाओं से बदलें।':'Sample reviews – replace with your real reviews.',
+'कैसे खरीदें?':'How to buy?','PDF चुनें':'Choose a PDF','अपनी परीक्षा का नोट्स चुनें':'Pick notes for your exam','UPI से पेमेंट':'Pay by UPI','किसी भी UPI ऐप से भुगतान करें':'Pay with any UPI app','तुरंत PDF पाएं':'Get your PDF instantly','पेमेंट के बाद डाउनलोड लिंक मिलेगा':'You get the download link after payment',
+'अक्सर पूछे जाने वाले सवाल':'Frequently asked questions','PDF कब मिलेगा?':'When will I get the PDF?','पेमेंट सफल होते ही डाउनलोड लिंक आपके ईमेल / स्क्रीन पर आ जाता है।':'The download link appears on screen / by email as soon as payment succeeds.',
+'पेमेंट फेल हो जाए तो?':'What if payment fails?','पैसे कटने पर भी PDF न मिले तो WhatsApp पर पेमेंट का स्क्रीनशॉट भेजें, हम जल्दी मदद करेंगे।':'If money is deducted but you do not get the PDF, send the payment screenshot on WhatsApp and we will help quickly.',
+'क्या PDF अपडेट होते हैं?':'Are the PDFs updated?','हां, नया पाठ्यक्रम आने पर नोट्स अपडेट किए जाते हैं।':'Yes, notes are updated when the syllabus changes.',
+'© 2026 Think&Win Academy · डिजिटल उत्पाद होने के कारण खरीद के बाद रिफंड उपलब्ध नहीं है ·':'© 2026 Think&Win Academy · Being a digital product, purchases are non-refundable ·','WhatsApp सहायता':'WhatsApp support',
+'UPI ऐप से भुगतान करें':'Pay with UPI app','पेमेंट के बाद WhatsApp करें':'Message us on WhatsApp after payment','बंद करें':'Close','भुगतान के बाद स्क्रीनशॉट भेजें, PDF आपको भेज दिया जाएगा।':'After paying, send a screenshot and we will send you the PDF.',
+'अभी खरीदें':'Buy now','नमूना देखें':'View sample','सभी':'All','करंट अफेयर्स':'Current Affairs'
+};
+
+function walk(){
+  var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),n,k;
+  while(n=w.nextNode()){
+    if(n.parentNode.closest('script') || n.parentNode.closest('#adminModal'))continue;
+    if(n.__o===undefined)n.__o=n.nodeValue;
+    k=n.__o.trim();
+    n.nodeValue=(lang==='en'&&EN[k])?n.__o.replace(k,EN[k]):n.__o;
+  }
+}
+
+var REVIEWS_DEMO=true,REVIEWS=[
+ {n:'अंकित, इंदौर',t:'नोट्स सरल भाषा में हैं और टॉपिक-वाइज बंटे हैं, रिवीजन आसान हुआ।',e:'Notes are in simple language and topic-wise, which made revision easy.'},
+ {n:'पूजा, भोपाल',t:'मॉक टेस्ट परीक्षा पैटर्न जैसे लगे, उत्तर कुंजी भी साफ थी।',e:'The mock tests felt like the real exam pattern, and the answer key was clear.'},
+ {n:'रवि, जबलपुर',t:'पेमेंट आसान था और PDF तुरंत मिल गया।',e:'Payment was easy and I got the PDF instantly.'}];
+
+function reviews(){
+  var g=document.getElementById('rgrid');g.innerHTML='';
+  REVIEWS.forEach(function(r){
+    var d=document.createElement('div');d.className='card rev';
+    d.innerHTML='<div class="stars">★★★★★</div><p></p><div class="meta"></div>';
+    d.querySelector('p').textContent=lang==='en'?r.e:r.t;
+    d.querySelector('.meta').textContent='— '+r.n;
+    g.appendChild(d);
+  });
+  document.getElementById('revnote').style.display=REVIEWS_DEMO?'':'none';
+}
+
+function sample(x){
+  if(x.s){window.open(x.s,'_blank');return}
+  document.getElementById('pTitle').textContent=x.t;
+  document.getElementById('pmodal').classList.add('show');
+  walk();
+}
+
+document.getElementById('pclose').onclick=function(){document.getElementById('pmodal').classList.remove('show')};
+document.getElementById('lang').onclick=function(){lang=lang==='hi'?'en':'hi';document.documentElement.lang=lang==='en'?'en':'hi';render()};
+
+/* ---- ADMIN PANEL LOGIC ---- */
+var isAdmAuth = false;
+function renderAdminList(){
+  document.getElementById("prodCount").textContent = PRODUCTS.length;
+  var list = document.getElementById("admProdList");
+  list.innerHTML = "";
+  PRODUCTS.forEach(function(x, idx){
+    var row = document.createElement("div");
+    row.className = "adm-item";
+    row.innerHTML = '<div><strong>'+x.t+'</strong><br><span class="meta">'+x.c+' · ₹'+x.p+' (MRP ₹'+x.m+')'+(x.k?' · [टेस्ट सीरीज]':'')+'</span></div>' +
+                    '<button class="btn sm danger" style="width:auto;margin:0">हटाएं</button>';
+    row.querySelector("button").onclick = function(){
+      if(confirm("क्या आप वाकई '"+x.t+"' को हटाना चाहते हैं?")){
+        PRODUCTS.splice(idx, 1);
+        saveLocal();
+        renderAdminList();
+        render();
+        showToast("कोर्स हटा दिया गया!");
+      }
+    };
+    list.appendChild(row);
+  });
+}
+
+document.getElementById("openAdmin").onclick = function(){
+  document.getElementById("adminModal").classList.add("show");
+  if(isAdmAuth){
+    document.getElementById("admLoginView").style.display = "none";
+    document.getElementById("admDashView").style.display = "block";
+    renderAdminList();
+  }
+};
+
+document.getElementById("closeAdmin").onclick = function(){
+  document.getElementById("adminModal").classList.remove("show");
+};
+
+document.getElementById("admLoginBtn").onclick = function(){
+  var pin = document.getElementById("admPinInput").value.trim();
+  if(pin === String(CONFIG.adminPin)){
+    isAdmAuth = true;
+    document.getElementById("admLoginView").style.display = "none";
+    document.getElementById("admDashView").style.display = "block";
+    document.getElementById("setUpi").value = CONFIG.upiId;
+    document.getElementById("setWa").value = CONFIG.whatsapp;
+    document.getElementById("setName").value = CONFIG.payeeName;
+    document.getElementById("setPin").value = CONFIG.adminPin;
+    renderAdminList();
+  } else {
+    alert("गलत PIN! डिफ़ॉल्ट PIN 1234 है।");
+  }
+};
+
+document.getElementById("saveSettingsBtn").onclick = function(){
+  CONFIG.upiId = document.getElementById("setUpi").value.trim() || CONFIG.upiId;
+  CONFIG.whatsapp = document.getElementById("setWa").value.trim() || CONFIG.whatsapp;
+  CONFIG.payeeName = document.getElementById("setName").value.trim() || CONFIG.payeeName;
+  CONFIG.adminPin = document.getElementById("setPin").value.trim() || "1234";
+  saveLocal();
+  showToast("✅ सेटिंग्स सेव हो गईं!");
+};
+
+document.getElementById("addProdBtn").onclick = function(){
+  var t = document.getElementById("newTitle").value.trim();
+  var c = document.getElementById("newCat").value.trim() || "MPPSC";
+  var d = document.getElementById("newDesc").value.trim() || "परीक्षा उपयोगी संपूर्ण PDF नोट्स।";
+  var p = Number(document.getElementById("newPrice").value);
+  var m = Number(document.getElementById("newMrp").value) || (p * 2);
+  var pg = Number(document.getElementById("newPages").value) || 100;
+  var link = document.getElementById("newLink").value.trim();
+  var k = document.getElementById("newIsTest").checked ? 1 : 0;
+
+  if(!t || !p){
+    alert("कृपया कोर्स का नाम और बिक्री कीमत (Price) ज़रूर भरें!");
+    return;
+  }
+  var item = {t:t, c:c, d:d, p:p, m:m, pg:pg, link:link};
+  if(k) item.k = 1;
+  PRODUCTS.unshift(item);
+  saveLocal();
+  renderAdminList();
+  render();
+  document.getElementById("newTitle").value = "";
+  document.getElementById("newDesc").value = "";
+  document.getElementById("newPrice").value = "";
+  document.getElementById("newMrp").value = "";
+  document.getElementById("newPages").value = "";
+  document.getElementById("newLink").value = "";
+  document.getElementById("newIsTest").checked = false;
+  showToast("✅ नया कोर्स जोड़ दिया गया!");
+};
+
+document.getElementById("copyDataBtn").onclick = function(){
+  var code = "var DEFAULT_CONFIG = " + JSON.stringify(CONFIG, null, 2) + ";\n\nvar DEFAULT_PRODUCTS = " + JSON.stringify(PRODUCTS, null, 2) + ";";
+  navigator.clipboard.writeText(code).then(function(){
+    showToast("📋 कोड कॉपी हो गया! अब HTML फाइल में पेस्ट करें।");
+  }).catch(function(){
+    prompt("नीचे से कोड कॉपी करें:", code);
+  });
+};
+
+document.getElementById("resetDataBtn").onclick = function(){
+  if(confirm("क्या आप सभी बदलाव हटाकर शुरुआती डिफ़ॉल्ट लिस्ट वापस लाना चाहते हैं?")){
+    localStorage.removeItem("twa_config");
+    localStorage.removeItem("twa_products");
+    CONFIG = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+    PRODUCTS = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+    saveLocal();
+    renderAdminList();
+    render();
+    showToast("↺ डिफ़ॉल्ट डेटा रीसेट हो गया!");
+  }
+};
+
+render();
+</script>
+</body>
+</html>
